@@ -1,0 +1,61 @@
+<br><br><br>
+<div class="container tbl-container section">
+    <a routerLink="/dashboard">&leftarrow;<span class="text-muted">Back</span>
+    </a>
+    <div class="row tbl-fixed">
+        <table class="table  text-center table-condensed" id='tab'> 
+            <!-- =========Products Heading========= -->
+             <thead>
+                <tr>
+                    <th scope="col">Booking ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Movie Name</th>
+                   
+                    <th scope="col">Email</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Seats</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <!-- =========Displaying Booking Details List========= -->
+                 <tr *ngFor="let item of history;">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name}}</td>
+                    <td>{{ item.show.name}}</td>
+                  
+                    <td>{{ item.email}}</td>
+                    <td>{{ item.show.date | date:'medium'}}</td>
+                    <td>{{ item.reserved }}</td>
+                    <td><button data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color:white;border:none"><i class="fa-solid fa-trash" style="color:red"></i></button></td>
+                    <td>
+                        
+                      
+                       
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete your account?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,31 @@
+<div class="card shadow-lg rounded mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <button style="border: none;" routerLink="/show-details/{{movieCard?.id}}">
+                <img src="{{movieCard?.image}}" class="img-fluid rounded-start" alt="...">
+                </button>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <div class="card-title">
+                <h4>{{movieCard?.name | uppercase}}</h4>
+            </div>
+                <div class="card-subtitle mb-2 text-muted">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <p class="card-text"><small class="text-muted">{{movieCard?.location | uppercase}}</small></p>
+                <p class="card-text"><small class="text-muted">{{movieCard?.genre}}</small></p>
+                <p class="card-text"><small class="text-muted">{{movieCard?.totalTime}}</small></p>
+                <h6 class="price card-text">{{movieCard?.price | currency:'INR'}}</h6>
+                <button type="submit" class="btn btn-danger input mt-2 " 
+                    routerLink="/ticket/{{movieCard?.id}}"
+                     ><b>Book</b></button>
+                    
+            </div>
+        </div>
+    </div>
+</div>

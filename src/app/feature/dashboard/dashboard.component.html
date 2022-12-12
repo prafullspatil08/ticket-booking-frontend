@@ -1,0 +1,40 @@
+<div class="container-fluid mt-2 ">
+    <div class="container justify-content-md-left mt-4 mb-4">
+    <ul class="nav nav-tabs mb-3" id="myTab0" role="tablist">
+      <li class="nav-item">
+        <button
+          class="nav-link"
+          type="button"
+          (click)="filter('')"
+        >
+          All
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          type="button"
+          (click)="filter('movie')"
+        >
+          Movies
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          type="button"
+          (click)="filter('play')"
+        >
+          Plays
+        </button>
+      </li>
+    </ul>
+  
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col col-6" *ngFor="let show of movieData">
+          <app-card [movieCard]="show"></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
