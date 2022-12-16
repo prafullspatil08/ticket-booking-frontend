@@ -10,13 +10,9 @@ describe('TicketComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TicketComponent ],
-      imports: [
-        FeatureModule,
-        RouterTestingModule
-      ]
-    })
-    .compileComponents();
+      declarations: [TicketComponent],
+      imports: [FeatureModule, RouterTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TicketComponent);
     component = fixture.componentInstance;

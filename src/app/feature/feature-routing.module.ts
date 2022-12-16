@@ -11,16 +11,19 @@ import { TicketComponent } from './ticket/ticket.component';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dashboard/:type', component: DashboardComponent },
-  { path: 'ticket/:id',component: TicketComponent },
+  { path: 'ticket/:id', component: TicketComponent },
   { path: 'show-details/:id', component: SingleShowComponent },
-  { path: 'confirm/:id',canActivate:[AuthGuard], component: ConfirmComponent },
+  {
+    path: 'confirm/:id',
+    canActivate: [AuthGuard],
+    component: ConfirmComponent,
+  },
   { path: 'history', component: BookingHistoryComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FeatureRoutingModule { }
+export class FeatureRoutingModule {}

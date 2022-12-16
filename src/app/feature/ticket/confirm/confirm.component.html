@@ -6,68 +6,98 @@
           <img [src]="movie?.image" />
         </div>
         <div class="movie-details p-3">
-
-            <h3 class="text-center">{{movie?.name}}</h3>
-            <p class="text-center">{{movie?.genre}}</p>             
+          <h3 class="text-center">{{ movie?.name }}</h3>
+          <p class="text-center">{{ movie?.genre }}</p>
         </div>
       </div>
       <div class="col-md-7" style="padding: 10px">
-        <a routerLink="/ticket/{{movie?.id}}">
+        <a routerLink="/ticket/{{ movie?.id }}">
           <i class="arrow-icon fa-solid fa-circle-chevron-left"></i>
         </a>
-        <form [formGroup]="bookingForm" class="py-2" (ngSubmit)="onBook(bookingForm.value)">
+        <form
+          [formGroup]="bookingForm"
+          class="py-2"
+          (ngSubmit)="onBook(bookingForm.value)"
+        >
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Name</label
+            <label for="exampleFormControlInput1" class="form-label">Name</label
             ><span class="mandatory-icon">*</span>
             <input
-            formControlName="name"
+              formControlName="name"
               type="text"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Please Enter Your Name"
             />
-            <span class="text-danger"
-            *ngIf="bookingForm.get('name')?.invalid &&  bookingForm.get('name')?.touched">
-            Please Enter Your Name</span> 
+            <span
+              class="text-danger"
+              *ngIf="
+                bookingForm.get('name')?.invalid &&
+                bookingForm.get('name')?.touched
+              "
+            >
+              Please Enter Your Name</span
+            >
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
               >Email</label
             ><span class="mandatory-icon">*</span>
             <input
-            formControlName="email"
+              formControlName="email"
               type="email"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Please Enter Your Email"
             />
-            <span class="text-danger"
-            *ngIf="bookingForm.get('email')?.invalid &&  bookingForm.get('email')?.touched">
-            Please Enter Valid Email</span> 
+            <span
+              class="text-danger"
+              *ngIf="
+                bookingForm.get('email')?.invalid &&
+                bookingForm.get('email')?.touched
+              "
+            >
+              Please Enter Valid Email</span
+            >
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
               >Mobile No</label
             ><span class="mandatory-icon">*</span>
             <input
-            formControlName="mobile"
+              formControlName="mobile"
               type="text"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Please Enter Your Mobile Number"
             />
-            <span class="text-danger"
-            *ngIf="bookingForm.get('mobile')?.invalid &&  bookingForm.get('mobile')?.touched">
-            Please Enter Valid Mobile Number</span> 
+            <span
+              class="text-danger"
+              *ngIf="
+                bookingForm.get('mobile')?.invalid &&
+                bookingForm.get('mobile')?.touched
+              "
+            >
+              Please Enter Valid Mobile Number</span
+            >
           </div>
           <button
-              *ngFor="let seat of displaySeat"
-              class="btn btn-outline-success m-2"
-              disabled>{{seat}}</button><br>
-              <div class="text-center">
-          <button [disabled]="bookingForm.invalid" style="width:30%" type="submit" class="mt-3 btn btn-danger">Book</button>
-        </div>
+            *ngFor="let seat of displaySeat"
+            class="btn btn-outline-success m-2"
+            disabled
+          >
+            {{ seat }}</button
+          ><br />
+          <div class="text-center">
+            <button
+              [disabled]="bookingForm.invalid"
+              style="width: 30%"
+              type="submit"
+              class="mt-3 btn btn-danger"
+            >
+              Book
+            </button>
+          </div>
         </form>
       </div>
     </div>

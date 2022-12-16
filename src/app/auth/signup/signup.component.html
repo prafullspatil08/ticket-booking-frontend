@@ -1,48 +1,107 @@
 <div class="container-fluid section">
-    <div class="container">
-        <div class="card container mt-4 card-body rounded shadow section">
-            <form [formGroup]="addUser" (ngSubmit)="saveUser()">
-                <div class="heading">
-                    <img
-                        src="http://static.vecteezy.com/system/resources/previews/002/996/993/original/falcon-wing-logo-icon-design-template-free-vector.jpg">
-                    <label class="form-name m-2">REGISTRATION FORM</label>
-                    <img
-                        src="http://static.vecteezy.com/system/resources/previews/002/996/993/original/falcon-wing-logo-icon-design-template-free-vector.jpg">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" autocomplete="off" formControlName="firstName">
-                    <span class="text-danger"
-                    *ngIf="addUser.get('firstName')?.invalid &&  addUser.get('firstName')?.touched">
-                    Name cannot be longer than 10 characters</span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp" autocomplete="off"
-                        formControlName="email">
-                        <span class="text-danger"
-                        *ngIf="addUser.get('email')?.invalid &&  addUser.get('email')?.touched">
-                        Enter Valid Email id</span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Mobile Number</label>
-                    <input type="text" class="form-control" autocomplete="off" formControlName="mobile"> 
-                    <span class="text-danger"
-                    *ngIf="addUser.get('mobile')?.invalid &&  addUser.get('mobile')?.touched">
-                    Please Enter Valid Mobile Number</span>               
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" autocomplete="off" formControlName="password">
-                    <span class="text-danger"
-                    *ngIf="addUser.get('password')?.invalid &&  addUser.get('password')?.touched">
-                    Enter Valid Password</span>
-                </div>
-
-                <button [disabled]="!addUser.valid" class="btn btn-outline-success m-2" type="submit">Submit</button>
-                <button class="btn btn-outline-danger m-2" type="reset">Reset</button>
-
-            </form>
+  <div class="container">
+    <div class="card container mt-4 card-body rounded shadow section">
+      <form [formGroup]="signupForm" (ngSubmit)="saveUser()">
+        <div class="heading">
+          <img
+            src="http://static.vecteezy.com/system/resources/previews/002/996/993/original/falcon-wing-logo-icon-design-template-free-vector.jpg"
+          />
+          <label class="form-name m-2">REGISTRATION FORM</label>
+          <img
+            src="http://static.vecteezy.com/system/resources/previews/002/996/993/original/falcon-wing-logo-icon-design-template-free-vector.jpg"
+          />
         </div>
+        <div class="mb-3">
+          <label class="form-label"
+            >Name <span class="mandatory-icon">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            autocomplete="off"
+            formControlName="firstName"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signupForm.get('firstName')?.invalid &&
+              signupForm.get('firstName')?.touched
+            "
+          >
+            Name cannot be longer than 10 characters</span
+          >
+        </div>
+        <div class="mb-3">
+          <label class="form-label"
+            >Email address <span class="mandatory-icon">*</span></label
+          >
+          <input
+            type="email"
+            class="form-control"
+            aria-describedby="emailHelp"
+            autocomplete="off"
+            formControlName="email"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signupForm.get('email')?.invalid &&
+              signupForm.get('email')?.touched
+            "
+          >
+            Enter Valid Email id</span
+          >
+        </div>
+        <div class="mb-3">
+          <label class="form-label"
+            >Mobile Number <span class="mandatory-icon">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            autocomplete="off"
+            formControlName="mobile"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signupForm.get('mobile')?.invalid &&
+              signupForm.get('mobile')?.touched
+            "
+          >
+            Please Enter Valid Mobile Number</span
+          >
+        </div>
+        <div class="mb-3">
+          <label class="form-label"
+            >Password <span class="mandatory-icon">*</span></label
+          >
+          <input
+            type="password"
+            class="form-control"
+            autocomplete="off"
+            formControlName="password"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signupForm.get('password')?.invalid &&
+              signupForm.get('password')?.touched
+            "
+          >
+            Enter Valid Password</span
+          >
+        </div>
+
+        <button
+          [disabled]="!signupForm.valid"
+          class="btn btn-outline-success m-2"
+          type="submit"
+        >
+          Submit
+        </button>
+        <button class="btn btn-outline-danger m-2" type="reset">Reset</button>
+      </form>
     </div>
+  </div>
 </div>

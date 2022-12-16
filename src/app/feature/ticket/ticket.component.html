@@ -1,97 +1,123 @@
 <section>
-    <br><br>
-    <div class="card item-cart shadow-lg mb-5">
-      <div class="row">
-        <div class="col-md-8 cart">
-          <div class="title">
-            <div class="row">
-              <div class="col">
-                <h4><b>{{show.name}}</b></h4>
-              </div>
-  
-            </div>
-          </div>
-         
-            <div class="row">
-              <div class="col show-seat">
-                <span class="fa-solid p-2 fa-chair freeSeat"></span>
-                  <span class="mt-1">Avalaible</span>
-                <span class="fa-solid p-2 fa-chair reservedSeat"></span>
-              <span class="mt-1">Reserved</span>
-                <span class="fa-solid p-2 fa-chair selectedSeat"></span>
-              <span class="mt-1">Selected</span>
-              </div>
-            </div>
-            
-              <div class="seating mt-5  ">
-                
-                
-                  <div *ngFor="let row of rows">
-                    <span class="seat" *ngFor="let col of cols" (click)="onSeatClicked(row + col)"
-                      [ngSwitch]="seatStatus(row + col)">
-                      <span *ngSwitchCase="'selected'" class="fa-solid fa-chair selectedSeat m-2"></span>
-                      <span *ngSwitchCase="'reserved'" class="fa-solid fa-chair reservedSeat m-2"></span>
-                      <span *ngSwitchDefault class="fa-solid fa-chair freeSeat m-2"></span>
-                    </span>
-                  </div>
-  
-               
-              </div>
-          
-        
-  
-          <div class="back-to-home mt-5"><a href="#" routerLink="/dashboard">&leftarrow;<span class="text-muted">Back to
-                Home</span>
-            </a></div>
-        </div>
-        <div class="col-md-4  summary">
-          <div>
-            <h5 class="mb-2"><b>Summary</b></h5>
-          </div>
-          <div class="in-summary">
-            <div class="row">
-              <div class="col" style="padding-left:0;">Total Time:</div>
-              <div class="col text-right">{{show.totalTime}}</div>
-            </div>
-            <div class="row">
-              <div class="col" style="padding-left:0;">Date: </div>
-              <div class="col text-right date-font">{{show.date | date:'short'}}</div>
-            </div>
-            <div class="row">
-              <div class="col" style="padding-left:0;">Genre: </div>
-              <div class="col text-right">{{show.genre}}</div>
-            </div>
-            <div class="row">
-              <div class="col" style="padding-left:0;">Total Seat: </div>
-              <div class="col text-right">{{selected.length}}</div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col" style="padding-left:0;">Price</div>
-              <div class="col text-right">{{show.price | currency:'INR'}}</div>
-            </div>
-            <div class="row">
-              <div class="col" style="padding-left:0;">Seat Reserved</div>
-              <div class="col text-right wordWrap">{{selected.length}} </div>
-            </div>
-            <div class="row">
-              <div class="col" style="padding-left:0;">Seat Price</div>
-              <div class="col text-right">{{show.price}} * {{selected.length}}</div>
-            </div>
-          </div>
-          <hr>
+  <br /><br />
+  <div class="card item-cart shadow-lg mb-5">
+    <div class="row">
+      <div class="col-md-8 cart">
+        <div class="title">
           <div class="row">
-            <div class="col">TOTAL PRICE</div>
-            <div class="col text-right">{{show.price * selected.length | currency:'INR'}}</div>
+            <div class="col">
+              <h4>
+                <b>{{ show.name }}</b>
+              </h4>
+            </div>
           </div>
-  
-          <button class="btn checkout-btn" (click)="bookSeat()" [disabled]="selected.length === 0">Book</button>
-          <button class="btn btn-danger clear-btn" (click)="clearSeats()"
-            [disabled]="selected.length === 0">Clear</button>
-  
+        </div>
+
+        <div class="row">
+          <div class="col show-seat">
+            <span class="fa-solid p-2 fa-chair freeSeat"></span>
+            <span class="mt-1">Avalaible</span>
+            <span class="fa-solid p-2 fa-chair reservedSeat"></span>
+            <span class="mt-1">Reserved</span>
+            <span class="fa-solid p-2 fa-chair selectedSeat"></span>
+            <span class="mt-1">Selected</span>
+          </div>
+        </div>
+
+        <div class="seating mt-5">
+          <div *ngFor="let row of rows">
+            <span
+              class="seat"
+              *ngFor="let col of cols"
+              (click)="onSeatClicked(row + col)"
+              [ngSwitch]="seatStatus(row + col)"
+            >
+              <span
+                *ngSwitchCase="'selected'"
+                class="fa-solid fa-chair selectedSeat m-2"
+              ></span>
+              <span
+                *ngSwitchCase="'reserved'"
+                class="fa-solid fa-chair reservedSeat m-2"
+              ></span>
+              <span
+                *ngSwitchDefault
+                class="fa-solid fa-chair freeSeat m-2"
+              ></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="back-to-home mt-5">
+          <a href="#" routerLink="/dashboard"
+            >&leftarrow;<span class="text-muted">Back to Home</span>
+          </a>
         </div>
       </div>
+      <div class="col-md-4 summary">
+        <div>
+          <h5 class="mb-2"><b>Summary</b></h5>
+        </div>
+        <div class="in-summary">
+          <div class="row">
+            <div class="col" style="padding-left: 0">Total Time:</div>
+            <div class="col text-right">{{ show.totalTime }}</div>
+          </div>
+          <div class="row">
+            <div class="col" style="padding-left: 0">Date:</div>
+            <div class="col text-right date-font">
+              {{ show.date | date : "short" }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" style="padding-left: 0">Genre:</div>
+            <div class="col text-right">{{ show.genre }}</div>
+          </div>
+          <div class="row">
+            <div class="col" style="padding-left: 0">Total Seat:</div>
+            <div class="col text-right">{{ selected.length }}</div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col" style="padding-left: 0">Price</div>
+            <div class="col text-right">
+              {{ show.price | currency : "INR" }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" style="padding-left: 0">Seat Reserved</div>
+            <div class="col text-right wordWrap">{{ selected.length }}</div>
+          </div>
+          <div class="row">
+            <div class="col" style="padding-left: 0">Seat Price</div>
+            <div class="col text-right">
+              {{ show.price }} * {{ selected.length }}
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">TOTAL PRICE</div>
+          <div class="col text-right">
+            {{ show.price * selected.length | currency : "INR" }}
+          </div>
+        </div>
+
+        <button
+          class="btn checkout-btn"
+          (click)="bookSeat()"
+          [disabled]="selected.length === 0"
+        >
+          Book
+        </button>
+        <button
+          class="btn btn-danger clear-btn"
+          (click)="clearSeats()"
+          [disabled]="selected.length === 0"
+        >
+          Clear
+        </button>
+      </div>
     </div>
-  
-  
-  </section>
+  </div>
+</section>

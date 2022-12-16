@@ -10,20 +10,16 @@ describe('BookingHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookingHistoryComponent ],
-      imports:[
-        FeatureModule,
-        RouterTestingModule
-      ]
-    })
-    .compileComponents();
+      declarations: [BookingHistoryComponent],
+      imports: [FeatureModule, RouterTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BookingHistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -10,13 +10,9 @@ describe('SingleShowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SingleShowComponent ],
-      imports:[
-        FeatureModule,
-        RouterTestingModule
-      ]
-    })
-    .compileComponents();
+      declarations: [SingleShowComponent],
+      imports: [FeatureModule, RouterTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SingleShowComponent);
     component = fixture.componentInstance;

@@ -10,13 +10,9 @@ describe('ConfirmComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfirmComponent ],
-      imports:[
-        FeatureModule,
-        RouterTestingModule
-      ]
-    })
-    .compileComponents();
+      declarations: [ConfirmComponent],
+      imports: [FeatureModule, RouterTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ConfirmComponent);
     component = fixture.componentInstance;

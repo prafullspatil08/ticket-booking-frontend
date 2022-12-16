@@ -5,32 +5,38 @@ import { ApiService } from 'src/app/shared/service/api.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   submitted = false;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
   passwordPattern =
     '(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}';
-  loginForm =new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      password:new FormControl('',[Validators.required, Validators.pattern(this.passwordPattern)])
+  loginForm = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern(this.emailPattern),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(this.passwordPattern),
+    ]),
   });
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {}
 
-  ngOnInit(): void {
-    console.log(this.loginForm);
-  }
+  ngOnInit(): void {}
+
   login() {
     this.submitted = true;
-    this.api.getLoginDetails(this.loginForm.value.email, this.loginForm.value.password);
+    this.api.getLoginDetails(
+      this.loginForm.value.email,
+      this.loginForm.value.password
+    );
   }
-  get email(){
+  get email() {
     return this.loginForm.get('email');
   }
-  get password(){
+  get password() {
     return this.loginForm.get('password');
   }
-
 }

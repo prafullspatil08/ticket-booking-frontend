@@ -13,6 +13,13 @@
       "email": "aman@gmail.com",
       "password": "Aman@2123",
       "id": 2
+    },
+    {
+      "firstName": "amresh",
+      "mobile": "9090909090",
+      "email": "amresh@gmail.com",
+      "password": "Amresh@123",
+      "id": 3
     }
   ]
 }

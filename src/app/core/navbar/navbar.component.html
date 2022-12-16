@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow  bg-white">
+<nav class="navbar navbar-expand-lg navbar-light shadow bg-white">
   <div class="container-fluid">
     <img
       src="https://i.pinimg.com/736x/0d/cf/b5/0dcfb548989afdf22afff75e2a46a508.jpg"
     />
-    <a class="navbar-brand m-1" routerLink="/dashboard">Phoenix</a>
+    <a class="navbar-brand m-1" routerLink="/">Phoenix</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -29,12 +29,16 @@
           *ngIf="!isloggedIn"
           routerLink="auth/login"
           type="submit"
-        >Login</button>
+        >
+          Login
+        </button>
         <button
           routerLink="/history"
           *ngIf="isloggedIn"
           class="btn btn-primary m-1"
-        >History</button>
+        >
+          History
+        </button>
       </form>
     </div>
   </div>
