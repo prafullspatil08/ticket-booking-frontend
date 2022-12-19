@@ -53,6 +53,8 @@ export class ConfirmComponent implements OnInit {
       mobile: form.mobile,
       reserved: this.displaySeat,
       showId: this.movie.id,
+      showName: this.movie.name,
+      showDate: this.movie.date,
     };
     this.api.saveSeatDetails(data).subscribe((res) => {});
     alert('Book Successfully');

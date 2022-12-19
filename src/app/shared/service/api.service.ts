@@ -25,8 +25,8 @@ export class ApiService {
     return this.http.post<any>(`${environment.baseUrl}/bookings`, data);
   }
 
-  getSeatDetails(id: any) {
-    return this.http.get(`${environment.baseUrl}/bookings/${id}`);
+  getSeatDetails() {
+    return this.http.get(`${environment.baseUrl}/bookings`);
   }
 
   getHistory() {

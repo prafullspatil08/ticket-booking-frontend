@@ -33,19 +33,16 @@ export class TicketComponent implements OnInit {
   }
 
   getReservedSeat() {
-    this.api
-      .getSeatDetails(this.route.snapshot.params['id'])
-      .subscribe((res) => {
-        this.splitString(res);
-      });
-  }
-
-  splitString(data: any) {
-    data.forEach((a: any) => {
-      let split: any = [];
-      split = a.reserved.split(', ');
-      this.mergerArray(split);
-    });
+    this.api.getSeatDetails().subscribe((res:any)=> {
+      res.forEach((bookingDetails:any)=>{
+       if(bookingDetails.showId == this.show.id){
+        let obj = [bookingDetails];
+        obj.forEach((a:any)=> {
+          this.mergerArray(a.reserved)
+        })
+       }
+      })
+    })
   }
 
   mergerArray(data: any) {
@@ -96,7 +93,9 @@ export class TicketComponent implements OnInit {
           email: this.user.email,
           mobile: this.user.mobile,
           reserved: this.selected,
-          showId: this.show.id,
+          showId:this.show.id,
+          showName: this.show.name,
+          showDate: this.show.date
         };
         this.api.saveSeatDetails(data).subscribe((res) => {});
         alert('Book Successfully');
